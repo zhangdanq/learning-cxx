@@ -29,7 +29,7 @@ public:
     // NOTICE: ⚠ 注意移动到自身问题 ⚠
     DynFibonacci &operator=(DynFibonacci &&others) noexcept {
         if(this != &others) {
-            delete[] cache;
+            delete[] this->cache;
             cache = std::exchange(others.cache,nullptr);
             cached = std::exchange(others.cached,0);
         }else{
