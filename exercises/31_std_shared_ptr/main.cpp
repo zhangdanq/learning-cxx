@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
     ptrs[2] = std::move(shared);
     ASSERT(observer.use_count() == 3, "");
 
-    std::ignore = std::move(ptrs[0]);
+    std::ignore = std::move(ptrs[0]);// ignore丢弃接受到的对象。move过后的原对象会自动删除
     ptrs[1] = std::move(ptrs[1]);
     ptrs[1] = std::move(ptrs[2]);
     ASSERT(observer.use_count() == 2, "");
